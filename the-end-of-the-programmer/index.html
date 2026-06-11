@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The end of the programmer: 26 predictions I dare you to break</title>
+<meta name="description" content="It's not about AI replacing devs. It's about who holds power inside the software production chain — and who's about to lose it. 26 theses for you to break.">
+<meta name="author" content="Ad Soares">
+<link rel="canonical" href="https://adsoares.github.io/the-end-of-the-programmer/">
+<link rel="alternate" hreflang="en" href="https://adsoares.github.io/the-end-of-the-programmer/">
+<link rel="alternate" hreflang="pt-BR" href="https://adsoares.github.io/fim-do-programador/">
+
+<!-- Open Graph (LinkedIn, Facebook, WhatsApp) -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="The end of the programmer: 26 predictions I dare you to break">
+<meta property="og:description" content="AI doesn't eliminate software — it redistributes power within the production chain. 26 theses, 3 horizons, written to be challenged.">
+<meta property="og:url" content="https://adsoares.github.io/the-end-of-the-programmer/">
+<meta property="og:image" content="https://adsoares.github.io/the-end-of-the-programmer/cover.jpg">
+<meta property="og:locale" content="en_US">
+
+<!-- X / Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The end of the programmer: 26 predictions I dare you to break">
+<meta name="twitter:description" content="Execution gets cheap; judgment gets valuable. 26 theses for you to break.">
+<meta name="twitter:image" content="https://adsoares.github.io/the-end-of-the-programmer/cover.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F3EF;
+    --ink:#16211F;
+    --ink-soft:#46524E;
+    --line:#D4DAD3;
+    --alta:#0E7C5B;
+    --media:#B07A00;
+    --baixa:#B0452B;
+    --card:#FAFBF9;
+    --measure:66ch;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Newsreader',Georgia,serif;
+    font-size:1.175rem;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  #progresso{position:fixed;top:0;left:0;height:3px;width:0;background:var(--ink);z-index:10}
+
+  .pagina{max-width:760px;margin:0 auto;padding:0 24px 96px}
+
+  /* ===== cover ===== */
+  header.capa{padding:88px 0 48px;border-bottom:2px solid var(--ink)}
+  .selo{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);display:flex;gap:1.5em;flex-wrap:wrap;margin-bottom:28px;
+  }
+  .selo a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+  .selo a:hover{border-color:var(--ink)}
+  h1{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;
+    font-size:clamp(2rem,5.4vw,3.2rem);
+    line-height:1.07;
+    letter-spacing:-.015em;
+    max-width:20ch;
+  }
+  h1 .desafio{color:var(--baixa)}
+  .dek{margin-top:20px;font-size:1.18rem;line-height:1.55;color:var(--ink-soft);max-width:var(--measure);font-style:italic}
+  .lede{margin-top:22px;font-size:1.26rem;line-height:1.6;color:var(--ink-soft);max-width:var(--measure)}
+
+  .tese-central{
+    margin-top:34px;padding:24px 26px;
+    background:var(--ink);color:var(--paper);border-radius:6px;
+    max-width:var(--measure);
+  }
+  .tese-central .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+    letter-spacing:.14em;text-transform:uppercase;opacity:.7;display:block;margin-bottom:10px;
+  }
+  .tese-central p{font-size:1.22rem;line-height:1.55}
+  .tese-central strong{font-weight:600}
+
+  /* how to read */
+  .como-ler{
+    margin-top:26px;padding:22px 24px;
+    background:var(--card);border:1px solid var(--line);border-radius:6px;max-width:var(--measure);
+  }
+  .como-ler h2{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.12rem;
+    margin-bottom:12px;letter-spacing:-.01em;
+  }
+  .como-ler p{font-size:1.04rem;line-height:1.62;margin-bottom:.9em}
+  .como-ler p:last-child{margin-bottom:0}
+  .como-ler .regra{border-left:3px solid var(--media);padding-left:14px}
+
+  .legenda{
+    margin-top:30px;display:flex;gap:1.4em;flex-wrap:wrap;
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft);
+  }
+  .legenda span{display:flex;align-items:center;gap:.5em}
+  .ponto{width:10px;height:10px;border-radius:2px;display:inline-block}
+  .ponto.a{background:var(--alta)}.ponto.m{background:var(--media)}.ponto.b{background:var(--baixa)}
+
+  nav.sumario{
+    margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:.76rem;
+    letter-spacing:.08em;display:flex;gap:1.6em;flex-wrap:wrap;text-transform:uppercase;
+  }
+  nav.sumario a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+  nav.sumario a:hover{color:var(--ink);border-color:var(--ink)}
+
+  /* ===== general prose ===== */
+  .bloco{margin-top:64px}
+  .bloco h2{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:1.7rem;letter-spacing:-.01em;margin-bottom:18px;
+  }
+  .bloco p{margin-bottom:1.15em;max-width:var(--measure)}
+
+  /* ===== horizons ===== */
+  .horizonte{margin-top:84px}
+  .horizonte-cab{
+    display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
+    border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:8px;
+  }
+  .horizonte-num{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(2.6rem,7vw,4rem);line-height:1;letter-spacing:-.03em;
+  }
+  .horizonte-rotulo{
+    font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  /* ===== theses ===== */
+  article.tese{padding:44px 0 8px;border-bottom:1px solid var(--line)}
+  article.tese:last-of-type{border-bottom:none}
+  .tese h3{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:600;
+    font-size:1.4rem;line-height:1.25;letter-spacing:-.01em;
+    max-width:var(--measure);
+  }
+  .aposta{
+    margin:16px 0 22px;
+    font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+    max-width:340px;
+  }
+  .aposta .num{color:var(--ink);font-weight:600}
+  .trilho{margin-top:7px;height:7px;background:var(--line);border-radius:2px;overflow:hidden}
+  .trilho .preench{height:100%;border-radius:2px}
+  .a .preench{background:var(--alta)} .m .preench{background:var(--media)} .b .preench{background:var(--baixa)}
+  .aposta .nota{display:block;margin-top:6px;text-transform:none;letter-spacing:.02em;color:var(--ink-soft)}
+
+  .tese p{margin-bottom:1.15em;max-width:var(--measure)}
+  .tese strong{font-weight:600}
+  .tese em{font-style:italic}
+
+  .mudar-ideia{
+    margin:6px 0 24px;padding:14px 18px;
+    background:var(--card);border-left:3px solid var(--ink);
+    font-size:1.02rem;line-height:1.6;max-width:var(--measure);
+  }
+  .mudar-ideia .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+    letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px;color:var(--ink-soft);
+  }
+  .pergunta{
+    font-family:'Newsreader',serif;font-style:italic;font-weight:500;
+    margin:6px 0 24px;padding-left:18px;border-left:3px solid var(--media);
+    max-width:var(--measure);
+  }
+  .destaque{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.16rem;line-height:1.4;
+    margin:6px 0 24px;max-width:var(--measure);
+  }
+
+  /* absorbs/human table */
+  .tabela{margin:8px 0 24px;max-width:var(--measure);border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:1.02rem}
+  .tabela .linha{display:grid;grid-template-columns:1.1fr 1.4fr 1.4fr;border-bottom:1px solid var(--line)}
+  .tabela .linha:last-child{border-bottom:none}
+  .tabela .linha.cab{background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+  .tabela .c{padding:11px 14px;line-height:1.4}
+  .tabela .c.area{font-weight:600;font-family:'Bricolage Grotesque',sans-serif;border-right:1px solid var(--line)}
+  .tabela .linha.cab .c.area{border-right-color:rgba(255,255,255,.2)}
+  .tabela .c.mid{border-right:1px solid var(--line)}
+  @media (max-width:600px){
+    .tabela{font-size:.92rem}
+    .tabela .c{padding:9px 10px}
+  }
+
+  /* ===== wins / loses ===== */
+  .placar{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  .placar .lado{background:var(--card);border-radius:6px;padding:22px 22px 14px;border-top:4px solid var(--alta)}
+  .placar .lado.perde{border-top-color:var(--baixa)}
+  .placar h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.15rem;margin-bottom:10px}
+  .placar p{font-size:1.04rem;line-height:1.65}
+  @media (max-width:620px){.placar{grid-template-columns:1fr}}
+
+  /* ===== lines ===== */
+  ol.frases{list-style:none;counter-reset:f;margin-top:6px;max-width:var(--measure)}
+  ol.frases li{
+    counter-increment:f;position:relative;
+    padding:16px 0 16px 56px;border-bottom:1px solid var(--line);
+    font-size:1.16rem;line-height:1.55;font-weight:500;
+  }
+  ol.frases li::before{
+    content:counter(f,decimal-leading-zero);
+    position:absolute;left:0;top:18px;
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-soft);
+  }
+  ol.frases li:last-child{border-bottom:none}
+
+  /* ===== where I'm wrong ===== */
+  .errado{
+    margin-top:84px;padding:36px 32px 28px;
+    border:2px dashed var(--baixa);border-radius:6px;background:var(--card);
+  }
+  .errado h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:-.01em;margin-bottom:18px}
+  .errado p{margin-bottom:1.1em;max-width:var(--measure)}
+
+  .conclusao{margin-top:84px;padding-top:8px}
+  .conclusao h2{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(1.7rem,4vw,2.2rem);letter-spacing:-.015em;line-height:1.1;margin-bottom:20px;max-width:20ch;
+  }
+  .conclusao p{margin-bottom:1.15em;max-width:var(--measure)}
+  .conclusao .ritmo{font-size:1.05rem}
+  .fechamento{
+    margin-top:28px;font-size:1.26rem;line-height:1.6;
+    font-weight:500;max-width:var(--measure);
+  }
+  .fechamento strong{font-weight:600}
+
+  footer{
+    margin-top:72px;padding-top:20px;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+  @media (max-width:560px){
+    body{font-size:1.08rem}
+    header.capa{padding:60px 0 40px}
+    .errado{padding:26px 20px 20px}
+    ol.frases li{padding-left:44px}
+  }
+  @media print{#progresso{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<div id="progresso" aria-hidden="true"></div>
+
+<div class="pagina">
+
+<header class="capa">
+  <div class="selo">
+    <span>Essay</span><span>June 2026</span><span>26 theses · 3 horizons</span><span><a href="/fim-do-programador/">Ler em português ↗</a></span>
+  </div>
+  <h1>The end of the programmer: 26 predictions I dare you to <span class="desafio">break</span></h1>
+  <p class="dek">It's not about AI replacing devs. It's about who holds power inside the software production chain — and who's about to lose it.</p>
+  <p class="lede">For decades, software development was bottlenecked by one simple question: <strong>who's going to implement this?</strong> With AI agents, that question loses force. The new question is different: who guarantees the AI understood the right problem, touched the right place, executed safely, and produced real value for the business?</p>
+
+  <div class="tese-central">
+    <span class="tag">The core thesis</span>
+    <p>AI doesn't eliminate software — it redistributes power within the production chain. Execution tends to get cheaper; judgment, more valuable. AI solves much of the implementation, but it doesn't eliminate ambiguity, accountability, risk, legacy, messy data, or hard business decisions. That's why the programmer won't disappear — but <strong>whoever only executes loses ground, and whoever understands, directs, validates, governs, and takes responsibility gains relevance.</strong></p>
+  </div>
+
+  <div class="como-ler">
+    <h2>How to read this article</h2>
+    <p>The theses below are bets, not certainties. Some carry high confidence; others are deliberately provocative. At some points, one thesis attacks another. That's intentional: almost every text about AI suffers from the same flaw — every prediction points in the same direction, as if the future were linear, clean, and inevitable.</p>
+    <p>The future will probably be more contradictory. AI may raise productivity in some contexts and create rework in others. It may shrink teams while creating new roles. It may make software cheaper while creating new, expensive dependencies. It may elevate human judgment and then automate part of that judgment.</p>
+    <p class="regra">Reading rule: don't just ask “will this happen?”. Ask “in which companies does this already start to make sense?”, “which part of this is inevitable?”, and “which part depends on maturity, governance, data, culture, and regulation?”.</p>
+  </div>
+
+  <div class="legenda" aria-label="Confidence color legend">
+    <span><i class="ponto a"></i>High confidence (80%+)</span>
+    <span><i class="ponto m"></i>Medium (60–79%)</span>
+    <span><i class="ponto b"></i>Low (&lt;60%)</span>
+  </div>
+
+  <nav class="sumario" aria-label="Table of contents">
+    <a href="#um-ano">1 year</a>
+    <a href="#tres-anos">3 years</a>
+    <a href="#seis-anos">6 years</a>
+    <a href="#placar">Who wins and who loses</a>
+    <a href="#nao-muda">What won't change</a>
+    <a href="#frases">Lines for debate</a>
+    <a href="#errado">Where I'm wrong</a>
+  </nav>
+</header>
+
+<!-- ================= 1 YEAR ================= -->
+<section class="horizonte" id="um-ano">
+  <div class="horizonte-cab">
+    <span class="horizonte-num">1 year</span>
+    <span class="horizonte-rotulo">Horizon · through June 2027 · execution starts being delegated</span>
+  </div>
+
+  <article class="tese">
+    <h3>1. The programmer who only codes loses their seat at the most AI-mature companies</h3>
+    <div class="aposta a"><span>Confidence <span class="num">80%</span></span><div class="trilho"><div class="preench" style="width:80%"></div></div></div>
+    <p class="destaque">Your programming job won't be destroyed by AI. It'll be destroyed by another programmer who uses AI better than you.</p>
+    <p>I'm not saying CRUD, simple integrations, and predictable fixes vanish from the market in 12 months — most companies have legacy, compliance, and inertia that keep that work alive for years. I'm saying that <strong>in the first quartile of adoption</strong>, the profile that just receives a task, writes code, and hands it to someone else to validate no longer justifies a dedicated hire. They compete with a queue of agents — and lose on price, speed, and availability.</p>
+    <p>The “Claude Code, Codex, or Copilot babysitter” who copies, pastes, accepts suggestions, and rubber-stamps pull requests is the first to become redundant: if their job is to not get in the way, they can be removed without loss. The interview question stops being “can you program?” and becomes <strong>“can you steer an AI to a correct, safe, and useful delivery?”</strong></p>
+    <div class="mudar-ideia"><span class="tag">What would change my mind</span>If by June 2027 AI-mature companies are still hiring meaningful volumes of junior/mid devs focused purely on execution, with no requirement for agent operation, structured validation, or full-cycle vision.</div>
+  </article>
+
+  <article class="tese">
+    <h3>2. Traditional junior roles shrink — and nobody has solved the problem that creates</h3>
+    <div class="aposta a"><span>Confidence <span class="num">85%</span></span><div class="trilho"><div class="preench" style="width:85%"></div></div><span class="nota">85% on the model's crisis; 95% on the unsolved problem</span></div>
+    <p>The tasks that historically trained juniors — CRUD, screen tweaks, scripts, basic tests, documentation, small fixes — are exactly the first ones AI does well enough. Entry-level roles don't vanish, but they change in nature: the junior who learns by making mistakes on simple tasks gives way to the beginner agent-operator, who needs to review, test, question, steer prompts, interpret failures, and understand enough of the system not to approve garbage with confidence. And in smaller numbers.</p>
+    <p class="destaque">If the junior disappears in 2027, who's the senior of 2032?</p>
+    <p>The industry may be eating its own seed corn. Today's senior learned technical judgment by writing a lot of bad code, fixing errors, breaking production, and maintaining legacy. If that ladder disappears, either we invent another way to build judgment, or we'll have a generation of validators who never built anything deeply — and therefore don't know how to validate.</p>
+    <div class="mudar-ideia"><span class="tag">What would change my mind</span>If a clear, scalable, widely adopted model of technical training quickly emerges — based on agents, simulations, labs, guided review, and deliberate practice.</div>
+    <p class="pergunta">Would your company hire a junior today? If the answer is no, who do you think you'll hire as a senior in 2032?</p>
+  </article>
+
+  <article class="tese">
+    <h3>3. The backlog becomes an execution queue for agents</h3>
+    <div class="aposta m"><span>Confidence <span class="num">75%</span></span><div class="trilho"><div class="preench" style="width:75%"></div></div></div>
+    <p>Issues, known bugs, migrations, missing tests, and UI tweaks get assigned directly to specialized agents. The human prioritizes, refines, approves, resolves ambiguity, and corrects when the AI gets lost. The new skill isn't writing a ticket; it's writing a unit of work an agent can execute safely, with limits and acceptance criteria.</p>
+    <p>This changes the quality the backlog requires. <strong>A bad issue no longer confuses just one person — it triggers a sequence of bad work:</strong> bad PRs, fragile tests, and misleading documentation, at agent scale and speed.</p>
+  </article>
+
+  <article class="tese">
+    <h3>4. The bottleneck moves away from writing code — but the gains may be smaller than they look</h3>
+    <div class="aposta a"><span>Confidence <span class="num">90%</span></span><div class="trilho"><div class="preench" style="width:90%"></div></div><span class="nota">90% on the bottleneck shift; genuine uncertainty on the size of the gain</span></div>
+    <p>The problem stops being “who writes the code” and becomes “who guarantees the AI understood the right system, changed the right place, and didn't break something hard to see”. And here lies the subtlest risk: <strong>the problem isn't just the AI being wrong. It's the AI looking right enough to be approved.</strong> A poorly done Human-in-the-Loop is just automation with a human stamp.</p>
+    <p>Now the most uncomfortable data point in this article, which I'll face instead of hiding. The METR study (July 2025), with experienced developers in repositories they knew well, showed that using AI tools they were about <strong>19% slower — while believing they were 20% faster</strong>. Open-source studies point the same way: more apparent activity, more rework, a drop in core developers' productivity.</p>
+    <p>The uncomfortable implication: part of the gain we feel may be illusory. The cost reappears in review, rework, inconsistency, technical debt, and future maintenance — delivery volume rises while net quality falls. The counterpoint: those studies measured 2024/2025 workflows with devs who were experts in their own code; in greenfield and fragmented tasks the gains can be high. My bet is that the gains are real but concentrated, and that the metric that matters isn't “how much code was generated” but <strong>how much validated value reached production without increasing future risk</strong>. But it's a bet, not a fact.</p>
+  </article>
+
+  <article class="tese">
+    <h3>5. The AI Builder emerges — the professional who runs the assembly line</h3>
+    <div class="aposta a"><span>Confidence <span class="num">85%</span></span><div class="trilho"><div class="preench" style="width:85%"></div></div><span class="nota">On the role's emergence; see thesis 8 of the 3-year horizon for the catch</span></div>
+    <p>A technical-product generalist who turns business intent into working software through a network of agents. A blend of programmer, analyst, QA, DevOps, product, data, and architecture. They don't need to be the top expert in anything, but they need to know enough to challenge the AI, assemble context, interpret logs, review code, measure impact, and decide when to escalate to a human specialist.</p>
+    <p>The name will still vary: AI Software Operator, AI Builder, AI-Native Builder, Agentic Software Architect, Software Orchestrator, AI Delivery Engineer. <strong>But: it may be a transitional profession.</strong> If validation itself gets partly automated, the AI Builder will need to climb the value chain again — we'll come back to this.</p>
+  </article>
+
+  <article class="tese">
+    <h3>6. Agentic AppOps stops being outsourcing and becomes software margin</h3>
+    <div class="aposta m"><span>Confidence <span class="num">70%</span></span><div class="trilho"><div class="preench" style="width:70%"></div></div></div>
+    <p>Companies already hire third parties to maintain and evolve software — that's nothing new; entire industries are built on it. What's new is the cost structure. In the traditional model, the client sends incomplete demands and a human team refines, develops, tests, fixes, and maintains. In the agent model, the client sends requirements of variable quality; agents refine, specify, implement, test, analyze impact, and open PRs; the contractor governs the flow and ensures quality. The service that needed 15 people now needs 2 to 4 operating agents.</p>
+    <div class="mudar-ideia"><span class="tag">Category phrase</span><strong>Agentic AppOps</strong> is the evolution of software maintenance: less staffing of people, more orchestration of agents, governance, and outcomes. Whoever sees this first operates with SaaS margins selling what was always a service. The brutal counterpart is in the 3-year horizon, thesis 7.</div>
+  </article>
+
+  <article class="tese">
+    <h3>7. Documentation becomes infrastructure for agents</h3>
+    <div class="aposta a"><span>Confidence <span class="num">85%</span></span><div class="trilho"><div class="preench" style="width:85%"></div></div></div>
+    <p>Documentation stops being something written only for humans and becomes part of the agents' operational infrastructure. READMEs, ADRs, runbooks, acceptance criteria, Definition of Done, security policies, and files like AGENTS.md directly guide how agents work — Thoughtworks' Technology Radar already treats AGENTS.md and Agent Skills as central techniques for this.</p>
+    <p>The line is simple: <strong>bad documentation produces bad agents.</strong> The company with organized context has an edge; the one relying on tribal knowledge gets confused, unsafe, expensive-to-run agents. Whoever treated documentation as a cost will discover they were destroying their own agents' fuel.</p>
+  </article>
+
+  <article class="tese">
+    <h3>8. The Human-in-the-Loop becomes a bottleneck — and starts to rot</h3>
+    <div class="aposta a"><span>Confidence <span class="num">80%</span></span><div class="trilho"><div class="preench" style="width:80%"></div></div></div>
+    <p>The market starts to realize the new bottleneck isn't just the AI — it's the human validating the AI. Professionals who rubber-stamp PRs without understanding the generated code, who “review” documents without reading them, who accept fragile tests because they passed green, will generate incidents, rework, and distrust. Methods emerge for validating with discipline: structured review of AI-generated PRs, comparison between intent and implementation, risk analysis before merge.</p>
+    <p>But there's a deeper problem, known in aviation since the 1980s (Lisanne Bainbridge, “Ironies of Automation”): <strong>those who don't practice, lose the skill.</strong> The dev who spends years only reviewing generated code loses the ability to write, debug, and judge code deeply. <strong>Paradox:</strong> the human stays in the loop because they can judge; but if automation strips away the practice that built that judgment, the HITL itself loses quality. We return to this in the 6-year horizon.</p>
+  </article>
+</section>
+
+<!-- ================= 3 YEARS ================= -->
+<section class="horizonte" id="tres-anos">
+  <div class="horizonte-cab">
+    <span class="horizonte-num">3 years</span>
+    <span class="horizonte-rotulo">Horizon · through June 2029 · roles compressed, operations change</span>
+  </div>
+
+  <article class="tese">
+    <h3>1. Teams of 1 to 4 deliver the operational output of squads of 10 to 20</h3>
+    <div class="aposta m"><span>Confidence <span class="num">75%</span></span><div class="trilho"><div class="preench" style="width:75%"></div></div></div>
+    <p class="destaque">Your 15-person squad is becoming a sign of inefficiency, not strength.</p>
+    <p>It doesn't mean mass layoffs; it means recomposition. Fewer people executing fragmented tasks, more people deciding, validating quality, governing risk, and understanding the business. Team size stops being a sign of capacity and becomes a question: <strong>how many of these people make real decisions, and how many just pass along work agents could execute?</strong> The question becomes “what's the real validated delivery capacity of this system of humans and agents?”.</p>
+  </article>
+
+  <article class="tese">
+    <h3>2. The SDLC becomes continuous orchestration</h3>
+    <div class="aposta a"><span>Confidence <span class="num">80%</span></span><div class="trilho"><div class="preench" style="width:80%"></div></div></div>
+    <p>The lifecycle stops being a linear process with separate roles and becomes continuous operation across humans, agents, pipelines, environments, policies, tests, documentation, observability, and governance — from discovery to maintenance.</p>
+    <p>McKinsey keeps hammering this in its reports on generative AI in development: the biggest gains require rethinking workflows and operating models, not buying tools. <strong>Buying an AI license and keeping the same process is the most expensive way to change nothing.</strong> The real gain comes when the whole flow is redesigned: how the requirement comes in, how context is assembled, how the agent executes, how the PR is reviewed, and how production is protected.</p>
+  </article>
+
+  <article class="tese">
+    <h3>3. PO, QA, DevOps, and Designer don't disappear — the boundaries between them do</h3>
+    <div class="aposta a"><span>Confidence <span class="num">80%</span></span><div class="trilho"><div class="preench" style="width:80%"></div></div></div>
+    <p>The disciplines don't end; what ends is the need for a separate person for every operational micro-activity on every project. The cut won't be by role, it'll be by quality.</p>
+    <div class="tabela" role="table" aria-label="What AI absorbs and what stays more human">
+      <div class="linha cab" role="row"><div class="c area" role="columnheader">Area</div><div class="c mid" role="columnheader">What AI absorbs</div><div class="c" role="columnheader">What stays more human</div></div>
+      <div class="linha" role="row"><div class="c area" role="cell">Dev</div><div class="c mid" role="cell">CRUD, refactors, simple tests, predictable integrations</div><div class="c" role="cell">Architecture, trade-offs, diagnosis, technical decisions</div></div>
+      <div class="linha" role="row"><div class="c area" role="cell">QA</div><div class="c mid" role="cell">Scenarios, test data, automation, regression</div><div class="c" role="cell">Risk, real coverage, perceived quality</div></div>
+      <div class="linha" role="row"><div class="c area" role="cell">DevOps</div><div class="c mid" role="cell">IaC, pipelines, common troubleshooting</div><div class="c" role="cell">Governance, security, cost, reliability</div></div>
+      <div class="linha" role="row"><div class="c area" role="cell">Product</div><div class="c mid" role="cell">User stories, initial criteria, feedback analysis</div><div class="c" role="cell">Priority, strategy, conflict, market vision</div></div>
+      <div class="linha" role="row"><div class="c area" role="cell">Design</div><div class="c mid" role="cell">Variations, prototypes, copy, commodity screens</div><div class="c" role="cell">Differentiation, experience, positioning</div></div>
+    </div>
+    <p>The valuable professional will be less “owner of a box” and more someone able to remove blockers so the network of agents works without friction.</p>
+  </article>
+
+  <article class="tese">
+    <h3>4. Architecture becomes an immune system against AI-generated mess</h3>
+    <div class="aposta a"><span>Confidence <span class="num">85%</span></span><div class="trilho"><div class="preench" style="width:85%"></div></div></div>
+    <p class="destaque">AI without architecture doesn't accelerate software. It accelerates entropy.</p>
+    <p>The more code AI generates, the more valuable the architecture that stops it from degrading the system — from choosing paths that are technically possible but architecturally forbidden. Thoughtworks' Technology Radar already warned about “architecture drift”: agents accelerate the gap between the real code and the intended architecture.</p>
+    <p>Architecture stops being a technical drawing and becomes an immune system: it defines what the AI can touch, how it must touch it, which paths are forbidden, which decisions require approval, and how to detect when the real code drifts from intent. Clear boundaries, contracts, architecture tests, ADRs, living documentation, and guardrails stop being best practices and become survival. AI-generated code without clear boundaries is technical debt on steroids — and the pragmatic architect becomes essential again because someone has to stop the AI from being too creative.</p>
+  </article>
+
+  <article class="tese">
+    <h3>5. Context Engineering becomes a core competency</h3>
+    <div class="aposta a"><span>Confidence <span class="num">85%</span></span><div class="trilho"><div class="preench" style="width:85%"></div></div></div>
+    <p>The best professional isn't the one who knows the most syntax, but the one who assembles the best context for the AI to operate safely — domain explained, business rules organized, decisions documented, scope limited, what the AI <em>must not</em> do made explicit — and keeps it comprehensible to humans.</p>
+    <p>The challenge isn't adding more context; it's putting the right context, at the right moment, for the right agent. Too much context becomes a problem too: contradictory instructions, noise, and cost. Whoever masters context engineering will have better, cheaper, more reliable agents — a productive advantage that's hard to copy.</p>
+  </article>
+
+  <article class="tese">
+    <h3>6. Traditional productivity metrics become obsolete</h3>
+    <div class="aposta a"><span>Confidence <span class="num">80%</span></span><div class="trilho"><div class="preench" style="width:80%"></div></div></div>
+    <p>Measuring productivity by commits, PRs, story points, or closed tickets gets dangerously misleading when agents produce volume at high speed. Volume isn't value — and the company that measures only apparent output will be fooled by agents very efficient at producing garbage. (Remember METR: the sense of speed already fools even the dev themselves.)</p>
+    <p>Metrics migrate toward business value, rework reduction, incidents, maintenance cost, and reliability. And the financial metric shifts too: what matters isn't cost per token, it's <strong>cost per validated outcome</strong>. The trap is spending a lot on AI without seeing the invisible cost of review, rework, and poorly governed agents.</p>
+  </article>
+
+  <article class="tese">
+    <h3>7. Hourly billing collapses — and takes the traditional software shop with it</h3>
+    <div class="aposta m"><span>Confidence <span class="num">70%</span></span><div class="trilho"><div class="preench" style="width:70%"></div></div></div>
+    <p>If a team with agents delivers faster, billing by the hour punishes the efficient. The body shop sells exactly what AI commoditizes: human hours of fragmented execution. The shops that survive migrate to another model — less staffing and more outcomes, fewer man-hours and more governance, less bloated squad and more Agentic AppOps. Those who keep selling “a mid-level dev at $X/hour” will compete with a marginal cost trending toward zero.</p>
+    <p>And this carries a social dimension that runs deeper than any single country. Tech has been one of the great income elevators of recent decades — a path into the middle class across many economies. <strong>If AI compresses the intermediate mass and rewards only an elite of orchestrators, the conversation stops being about careers and becomes about economic policy.</strong></p>
+  </article>
+
+  <article class="tese">
+    <h3>8. The most uncomfortable thesis in this article: the human validator is automatable too</h3>
+    <div class="aposta b"><span>Confidence <span class="num">50%</span></span><div class="trilho"><div class="preench" style="width:50%"></div></div><span class="nota">And that's exactly why it matters</span></div>
+    <p>Much of this article rests on a comfortable premise: code is automatable, but judgment, validation, and governance stay human. <strong>But why, exactly?</strong></p>
+    <p>Reviewing a PR has inputs, outputs, and criteria. Validating documentation has a checklist. Checking architectural adherence can be partly automated. In many cases, an agent can review better than a tired, distracted, or deadline-pressured human. If that holds up by 2029, the AI Builder of the 1-year horizon may be a profession with an expiration date, and the HITL a transitional phase.</p>
+    <p>This doesn't mean the human disappears tomorrow: legal accountability, institutional trust, and reputational risk keep them in the circuit. But notice what that means — <strong>the human stays in the loop for legal and political reasons, not technical ones.</strong> That's a far more fragile position than “human judgment is irreplaceable”.</p>
+  </article>
+
+  <article class="tese">
+    <h3>9. Agent governance becomes mandatory — probably after the first big incident</h3>
+    <div class="aposta a"><span>Confidence <span class="num">90%</span></span><div class="trilho"><div class="preench" style="width:90%"></div></div><span class="nota">90% on governance; 60% on the incident as the trigger</span></div>
+    <p>Agents are no longer chatbots; they've become operational actors with access to repositories, credentials, pipelines, and data. No serious company will let them operate without answering: which agent made the change, who authorized it, with which permissions, using which context, which tests ran, which risk was accepted, how to revert, how to audit. This creates a new attack surface: prompt injection, skill supply chain, malicious MCPs, and <strong>automated decisions with legitimate permission</strong>.</p>
+    <p>Extra bet: serious governance won't come from prudence, it'll come from reaction. At some point between 2026 and 2029, an autonomous agent causes an incident big enough to become a headline, a contract, an audit, and an insurance requirement. After that, governance stops being a consulting slide and becomes a mandatory clause.</p>
+  </article>
+</section>
+
+<!-- ================= 6 YEARS ================= -->
+<section class="horizonte" id="seis-anos">
+  <div class="horizonte-cab">
+    <span class="horizonte-num">6 years</span>
+    <span class="horizonte-rotulo">Horizon · through June 2032 · the market is reconfigured</span>
+  </div>
+
+  <article class="tese">
+    <h3>1. A software company with very few humans becomes normal</h3>
+    <div class="aposta m"><span>Confidence <span class="num">70%</span></span><div class="trilho"><div class="preench" style="width:70%"></div></div></div>
+    <p>It'll be common for a relevant SaaS company to operate with 3 to 15 people and dozens or hundreds of specialized agents handling development, support, data analysis, documentation, monitoring, QA, security, billing, and onboarding. Humans stay in strategy, governance, relationships, legal accountability, product vision, and decisions involving risk, reputation, and ambiguity. The next unicorn may be born with fewer people than a traditional enterprise squad.</p>
+  </article>
+
+  <article class="tese">
+    <h3>2. Software starts being generated on demand — and that opens two dangerous paths</h3>
+    <div class="aposta m"><span>Confidence <span class="num">65%</span></span><div class="trilho"><div class="preench" style="width:65%"></div></div><span class="nota">On generation on demand</span></div>
+    <p>Instead of opening a ticket to create an admin screen, the user asks: “create a delinquency view by unit, with a weekly alert and permission for managers only”. The AI generates the interface, the query, the permission, the test, the documentation, and maybe a controlled deploy. Software stops being just a project and becomes an organism continuously tended by agents. But it opens two paths: <strong>disposable software</strong> (generate, use, throw away, and regenerate when needed — maintenance dies in some layers) and <strong>instant legacy</strong> (millions of lines no human ever read, integrated into critical systems).</p>
+    <p class="destaque">AI may not end legacy. It may create it at industrial speed.</p>
+    <p>My bet: we'll have both at once, in different layers of the stack — and “archaeology of AI-generated code” becomes a profitable service.</p>
+  </article>
+
+  <article class="tese">
+    <h3>3. The differentiator stops being software and becomes operational knowledge</h3>
+    <div class="aposta a"><span>Confidence <span class="num">85%</span></span><div class="trilho"><div class="preench" style="width:85%"></div></div></div>
+    <p>Code gets cheap. What gets expensive is deeply understanding the business, the data, the processes, the constraints, the risks, the customers, the real operation, and the reasons previous decisions were made. The advantage won't be “I have devs who code”; it'll be “I have context, data, history, integrations, processes, and agents trained to operate this domain better than my competitors”. In the post-AI world, operational knowledge becomes the product.</p>
+  </article>
+
+  <article class="tese">
+    <h3>4. Teams will have more agents than people — and professionals will sell their agent networks</h3>
+    <div class="aposta m"><span>Confidence <span class="num">75%</span></span><div class="trilho"><div class="preench" style="width:75%"></div></div><span class="nota">75% on the first part; 55% on the second</span></div>
+    <p>Each senior will have a personal network of agents — code, test, security, infrastructure, documentation, product, finance, incidents — and will be judged by their ability to assemble, coordinate, train, and audit that set. A senior with good agents will look like a mini-company, serving multiple clients at once. Recognized professionals will license their processes, templates, skills, and validation flows. Methodology becomes a product, and the résumé of the future may say not just where someone worked, but which agents they know how to operate.</p>
+  </article>
+
+  <article class="tese">
+    <h3>5. Your production capacity becomes a vendor subscription</h3>
+    <div class="aposta a"><span>Confidence <span class="num">80%</span></span><div class="trilho"><div class="preench" style="width:80%"></div></div></div>
+    <p>This is the thesis the market prefers not to discuss. If software production comes to depend on frontier models, APIs, and closed platforms, you stop controlling part of your own productive capacity. What happens when the price triples? When an update changes the behavior of the model that powers your pipeline? When a policy blocks a use case, or a geopolitical decision restricts access?</p>
+    <p>Software was an asset: you wrote it, it was yours. AI production capacity may become rented land. Open models, local execution, multi-model routing, caching, and fine-tuning stop being cost optimization and become a <strong>strategy of operational sovereignty</strong>. <strong>AI productive capacity may be the new cloud lock-in</strong> — and whoever builds an operation 100% coupled to a single vendor will feel it at the worst possible time.</p>
+  </article>
+
+  <article class="tese">
+    <h3>6. The return of the modular monolith</h3>
+    <div class="aposta b"><span>Confidence <span class="num">55%</span></span><div class="trilho"><div class="preench" style="width:55%"></div></div><span class="nota">Deliberately low — the most counterintuitive bet in this article</span></div>
+    <p>A prediction that goes against the last decade's consensus: AI may make modular monoliths more attractive than overly distributed architectures. Agents work better when they understand context cohesively. Systems with dozens of repositories, multiple pipelines, scattered contracts, and fragmented observability are harder for agents to understand, change, and validate.</p>
+    <p>Well-organized modular monoliths offer centralized context, clear internal boundaries, simpler tests, and lower risk of inconsistency between services. It doesn't mean abandoning microservices in every case. The provocation is different: <strong>AI may not kill the monolith — it may make it more competitive in many scenarios.</strong></p>
+  </article>
+
+  <article class="tese">
+    <h3>7. A “Professional Engineer” stamp for software: technical accountability signed by humans</h3>
+    <div class="aposta m"><span>Confidence <span class="num">60%</span></span><div class="trilho"><div class="preench" style="width:60%"></div></div></div>
+    <p>When agents operate production, the question “who answers when it goes wrong?” stops being philosophical. In critical systems — finance, health, government, infrastructure, payments — the figure of the human technical lead accountable for the delivery may emerge. Even if 90% of the work was done by agents, someone will have to sign off on risk, compliance, and civil liability — the equivalent of a licensed engineer stamping off on a building.</p>
+    <p>The irony: this may preserve part of human employment not for technical superiority, but for <strong>legal, insurance, and institutional necessity</strong> — someone to sue.</p>
+  </article>
+
+  <article class="tese">
+    <h3>8. Traditional computer-science education enters open crisis</h3>
+    <div class="aposta m"><span>Confidence <span class="num">70%</span></span><div class="trilho"><div class="preench" style="width:70%"></div></div></div>
+    <p>Enrollment in computer-science programs is already falling in the US. Long curricula train people for tasks that get automated during the course itself; bootcamps that teach only CRUD lose value even faster. The diploma loses force as a sufficient signal of competence, and nothing consolidated replaces it. The question remains unanswered: how do you build technical judgment — the one thing this article says is left for humans — if automation eliminated the practice that created that judgment? (Yes, it's the same wound as the junior thesis. It doesn't heal in 6 years.)</p>
+  </article>
+</section>
+
+<!-- ================= WHO WINS AND WHO LOSES ================= -->
+<section class="bloco" id="placar">
+  <h2>Who wins and who loses</h2>
+  <div class="placar">
+    <div class="lado">
+      <h3>Gains ground</h3>
+      <p>The AI Builder who runs agents with judgment. The pragmatic architect who defines boundaries. The risk- and systemic-validation-oriented QA. The platform, security, and cost DevOps. The PO with strategic vision and decision power. The consultancy that sells outcomes, governance, and evolution. The company with organized context, data, and documentation.</p>
+    </div>
+    <div class="lado perde">
+      <h3>Loses ground</h3>
+      <p>The coder of well-specified tasks. The dev who blindly trusts AI output. The purely executor manual QA. The repetitive operational DevOps. The bureaucratic PO who just writes stories. The body shop based on man-hours. The company of tribal knowledge and bad documentation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WON'T CHANGE ================= -->
+<section class="bloco" id="nao-muda">
+  <h2>What won't change</h2>
+  <p>Despite all the transformation, AI doesn't eliminate business ambiguity, cross-team conflict, deadline pressure, badly written legacy, messy data, political decisions, production incidents, indecisive customers, external dependencies, or architecture trade-offs. It solves execution, but it doesn't eliminate responsibility.</p>
+  <p>And maybe that's the main shift: <strong>the more execution is automated, the more important it becomes to know what's worth taking responsibility for.</strong></p>
+</section>
+
+<!-- ================= LINES ================= -->
+<section class="bloco" id="frases">
+  <h2>Lines for debate</h2>
+  <p>Twelve statements condensed from the theses above. Agree, disagree, share the one that bothers you most:</p>
+  <ol class="frases">
+    <li>Your programming job won't be destroyed by AI. It'll be destroyed by another programmer who uses AI better than you.</li>
+    <li>AI's biggest victim won't be the senior. It'll be the junior who still depended on simple tasks to learn.</li>
+    <li>Companies will want seniors who can operate agents, but won't know how to train those seniors.</li>
+    <li>AI's biggest bug will be looking right enough to get approved.</li>
+    <li>A poorly done Human-in-the-Loop is just automation with a human stamp.</li>
+    <li>AI without architecture doesn't accelerate software. It accelerates entropy.</li>
+    <li>AI-generated code without clear boundaries is technical debt on steroids.</li>
+    <li>Companies that treat documentation as a cost are destroying their own agents' fuel.</li>
+    <li>The software shop that sells hours is selling exactly what AI wants to destroy.</li>
+    <li>AI may not end legacy. It may create it at industrial scale.</li>
+    <li>The human may stay in the loop not because they're irreplaceable, but because someone has to sign the responsibility.</li>
+    <li>AI productive capacity may be the new cloud lock-in.</li>
+  </ol>
+</section>
+
+<!-- ================= WHERE I'M WRONG ================= -->
+<section class="errado" id="errado">
+  <h2>Where I'm probably wrong</h2>
+  <p>The five fronts where this article is most likely to fail — knock them down in the comments:</p>
+  <p><strong>1. The dates.</strong> Everything in “1 year” may take three; everything in “3 years” may take seven. Technology changes fast; organizations, contracts, regulation, culture, and budget change slowly. The history of automation is a history of correct predictions with wrong dates.</p>
+  <p><strong>2. The capability of the models.</strong> I assume models, tools, and agents keep evolving at the 2023–2026 pace. If there's a technical plateau, prohibitive cost, or regulatory restriction, several theses slip a lot — and the 6-year scenario becomes the 15-year one.</p>
+  <p><strong>3. Organizational adoption.</strong> Even if the technology exists, companies may not change their processes. Many will keep using AI as <strong>an expensive autocomplete inside an old SDLC</strong>, and in that case almost none of this materializes on the predicted timeline.</p>
+  <p><strong>4. The AI Builder itself.</strong> I described it as the professional of the future. But if thesis 8 of the 3-year horizon is right, it's a transitional profession — the last human job before part of validation itself gets automated. I include myself in that risk.</p>
+  <p><strong>5. The social and regulatory reaction.</strong> The market may slow automation out of fear, politics, unions, compliance, insurers, or legislation. Technical capability isn't the only force that defines the future.</p>
+</section>
+
+<!-- ================= CONCLUSION ================= -->
+<section class="conclusao">
+  <h2>The end isn't the programmer's. It's the end of execution as a comfort zone.</h2>
+  <p>AI doesn't eliminate the need for software — on the contrary, it may drastically increase how much gets produced. What changes is the distribution of value within that production.</p>
+  <p class="ritmo">Repeatable execution gets cheaper. Code gets more abundant. PRs get easier to generate, interfaces easier to assemble, tests easier to write, documentation easier to produce.</p>
+  <p class="ritmo">But ambiguity stays expensive. Decisions stay hard. Risk stays real. Business stays full of conflict. Security stays a war. Legacy keeps existing. And responsibility still needs someone to own it.</p>
+  <p>The final bet: the most valuable professional of the coming years won't be the one who writes the most code, but the one who turns human ambiguity into safe, evolvable, auditable, and useful systems — <strong>using agents without being dominated by them</strong>.</p>
+  <p class="fechamento">And a question, for you who read this far: of the 26 theses above, which would you bet a year's salary is wrong? <strong>If none — you agree too much with a text about the future, and that should bother you as much as it bothers me.</strong></p>
+</section>
+
+<footer>
+  26 theses · 3 horizons · written to be challenged
+</footer>
+
+</div>
+
+<script>
+  const barra = document.getElementById('progresso');
+  const atualizar = () => {
+    const h = document.documentElement;
+    const total = h.scrollHeight - h.clientHeight;
+    barra.style.width = total > 0 ? (h.scrollTop / total * 100) + '%' : '0%';
+  };
+  document.addEventListener('scroll', atualizar, {passive:true});
+  atualizar();
+</script>
+</body>
+</html>
